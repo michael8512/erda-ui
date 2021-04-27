@@ -105,6 +105,17 @@ const AppCenterEl = () => {
   );
 };
 
+const getAvatarChars = (name:string) => {
+  const pattern = /[\u4e00-\u9fa5]/;
+  if (!name) {
+    return name;
+  } else if (pattern.test(name)) {
+    return name.slice(-2);
+  } else {
+    return name.slice(0,4);
+  }
+}
+
 const SideBar = () => {
   const [loginUser, orgs] = userStore.useStore((s) => [s.loginUser, s.orgs]);
   const currentOrg = orgStore.useStore(s => s.currentOrg);
@@ -184,7 +195,7 @@ const SideBar = () => {
     // subtitle: 'slogan here',
     avatar: {
       src: loginUser.avatar ? ossImg(loginUser.avatar, { w: 48 }) : undefined,
-      chars: (loginUser.nick || loginUser.name).slice(0, 1),
+      chars: getAvatarChars(loginUser.nick || loginUser.name),
     },
     operations: [
       {

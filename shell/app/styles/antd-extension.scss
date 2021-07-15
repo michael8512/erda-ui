@@ -167,6 +167,10 @@ div.ant-modal-body {
       }
     }
   }
+
+  .erda-icon {
+    transform: translateY(0);
+  }
 }
 
 .ant-table-thead > tr > th {
@@ -420,6 +424,7 @@ div.ant-table {
 .ant-table tfoot > tr > th,
 .ant-table tfoot > tr > td {
   line-height: 28px;
+  overflow-y: visible;
 }
 
 .ant-table-tbody > tr > td {
